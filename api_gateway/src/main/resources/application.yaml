@@ -10,7 +10,14 @@ spring:
 zuul:
   routes:
     weather-forecast:
-      url: http://localhost:8081
-
+      path: /myapp/api/weather-forecast/**
+      url: http://localhost:8081/myapp
     weather-data:
       url: http://localhost:8082
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
